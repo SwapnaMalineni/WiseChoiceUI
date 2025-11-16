@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WiseChoice</title>
+    <meta name="description" content="WiseChoice AI - Analyze any product’s reviews, pricing, and trustworthiness in seconds.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  </head>
+  <body>
+    <header class="navbar" id="navbar">
+      <div class="container nav-inner">
+        <a href="#hero" class="brand">
+          <img src="https://cdn-icons-png.flaticon.com/512/13485/13485480.png" alt="WiseChoice Icon" style="width: 42px; height: 42px;">
+          <span>WiseChoice</span>
+        </a>
+        <nav class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#features">Features</a>
+          <a href="#about-us">About Us</a>
+          <a href="#how-it-works">How It Works</a>
+        </nav>
+        <a href="#dashboard" class="cta-try">Try Now</a>
+      </div>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="overlay"></div>
+      <div class="swiper hero-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide hero-slide" style="--img: url('https://21490690.fs1.hubspotusercontent-na1.net/hub/21490690/hubfs/blog/5%20Cart%20Flyouts%20We%20Love/immi%20rebuy%20smart%20cart.jpg?width=1200&length=1200&name=immi%20rebuy%20smart%20cart.jpg');">
+            <div class="container hero-inner">
+              <h1 class="headline">
+                <span class="headline-line accent">An Intelligent Shopping Companion</span>
+              </h1>
+              <p class="subhead">Discover the power of AI-driven shopping with WiseChoice.
+                We help you make informed, confident, and smarter purchase decisions every time.</p>
+              <form class="analyze-form" id="analyze-form" onsubmit="event.preventDefault(); analyzeUrl();">
+                <input type="url" id="product-url" placeholder="Paste product URL (Amazon, Flipkart, etc.)" required>
+                <button type="submit" id="analyze-btn">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  Analyze
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="swiper-slide hero-slide" style="--img: url('https://i.pinimg.com/736x/e4/df/9b/e4df9b57924492af0b39945acb00357d.jpg');">
+            <div class="container hero-inner">
+              <h1 class="headline">
+                <span class="headline-line accent">Transforming Confusion into Confidence</span>
+              </h1>
+              <p class="subhead">Say goodbye to endless scrolling and second-guessing.
+                WiseChoice turns overwhelming product data into clear, actionable insights.</p>
+              <div class="hero-cta">
+                <a href="#features" class="btn-secondary">Explore Features</a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide hero-slide" style="--img: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1600&auto=format&fit=crop');">
+            <div class="container hero-inner">
+              <h1 class="headline">
+                <span class="headline-line accent">Think Wise. Shop Confident</span>
+              </h1>
+              <p class="subhead">With every click, our intelligent system ensures transparency and trust.
+                Let WiseChoice guide you toward choices you'll never regret.</p>
+              <div class="hero-cta">
+                <a href="#partners" class="btn-secondary">Our Partners</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-pagination swiper-pagination"></div>
+        <div class="hero-nav hero-prev swiper-button-prev"></div>
+        <div class="hero-nav hero-next swiper-button-next"></div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="container">
+        <h2>Features</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <i class="fa-solid fa-shield-alt"></i>
+            <h3>Fake Review Analyzer</h3>
+            <p>Detect misleading and paid reviews using advanced AI algorithms. Stay assured that every opinion you read is genuine and trustworthy.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>Sentiment Analysis</h3>
+            <p>Understand what real customers truly feel about a product. Get an instant summary of collective emotions—positive, neutral, or negative.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <h3>Pricing Analysis</h3>
+            <p>Compare product prices across multiple platforms in seconds. Know whether the deal you’re seeing is truly fair or inflated.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-file-alt"></i>
+            <h3>Smart Review Summarization</h3>
+            <p>Skip reading thousands of reviews—get the essence in five key points. Our AI condenses reviews into pros and cons that matter most.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-robot"></i>
+            <h3>Product Recommendation System</h3>
+            <p>Discover similar or better products tailored to your preferences. WiseChoice continuously learns from your interactions to improve results.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-chart-bar"></i>
+            <h3>Comprehensive Product Insights Dashboard</h3>
+            <p>Visualize all analytics—authenticity, sentiment, and price trends—at a glance. Experience an elegant, interactive dashboard designed for clarity and impact.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-lock"></i>
+            <h3>E-KYC Secured Registration</h3>
+            <p>Sign up with complete trust and transparency. Your data stays protected with encryption and secure verification.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fa-solid fa-user-check"></i>
+            <h3>Advanced User Verification</h3>
+            <p>Ensure secure and verified user interactions with our advanced verification system. Protect your account with multi-layer security.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-page" id="about-us">
+      <div class="container">
+        <div class="section-heading">
+          <h2>The Story of WiseChoice</h2>
+          <p>Learn about our journey, our mission, and the values that drive us to build a smarter shopping experience for everyone.</p>
+        </div>
+
+        <div class="about-story-grid">
+          <div class="story-content">
+            <h3>Who We Are</h3>
+            <p>WiseChoice was born from a simple frustration: the overwhelming and often misleading world of online shopping. We are a team of developers, data scientists, and designers passionate about bringing transparency and confidence back to the consumer. We believe that everyone deserves to make informed decisions without spending hours sifting through fake reviews and confusing data.</p>
+            <a href="#how-it-works" class="btn-read-more">See How It Works</a>
+          </div>
+          <div class="story-image">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1632&auto=format&fit=crop" alt="Team collaborating on the WiseChoice project">
+          </div>
+        </div>
+
+        <div class="counters">
+          <div class="counter-item">
+            <h3 class="counter-number" data-target="150000">0</h3>
+            <p>Happy Clients</p>
+          </div>
+          <div class="counter-item">
+            <h3 class="counter-number" data-target="250">0</h3>
+            <p>Partners Worldwide</p>
+          </div>
+          <div class="counter-item">
+            <h3 class="counter-number" data-target="98">0</h3>
+            <p>% Success Rate</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="how-it-works">
+      <div class="container about-container">
+        <div class="section-heading">
+          <h2>How It Works</h2>
+          <p>Discover how WiseChoice simplifies your shopping journey from 
+            analyzing reviews to finding the best deal, all in a few smart steps.
+          With AI-powered analysis, WiseChoice filters fake reviews, compares prices, and
+highlights what truly matters — so your decisions are always smart and fair.</p>
+        </div>
+        <div class="about-content">
+          <h2 id="about-slide-title" class="about-title"></h2>
+          <p id="about-slide-description" class="about-description"></p>
+          <a id="about-slide-button" href="#home" class="btn-read-more"></a>
+        </div>
+        <div class="about-media">
+          <div class="about-swiper swiper">
+            <div class="swiper-wrapper">
+              <!-- Slide 1: Input Link -->
+              <div class="swiper-slide about-slide" 
+                   data-title="1. Input Product Link" 
+                   data-description="Paste any product link from major e-commerce platforms like Amazon or Flipkart into our analysis bar to begin."
+                   data-button-text="Try It Now"
+                   data-button-link="#home">
+                <img src="images/product_link.png" alt="Pasting a product link">
+              </div>
+              <!-- Slide 2: Data Extraction -->
+              <div class="swiper-slide about-slide"
+                   data-title="2. Data Extraction"
+                   data-description="Our system instantly scrapes essential data, including customer reviews, product ratings, specifications, and pricing information."
+                   data-button-text="See All Features"
+                   data-button-link="#features">
+                <img src="images/dataextraction.png" alt="Data extraction concept">
+              </div>
+              <!-- Slide 3: Fake Review Detection -->
+              <div class="swiper-slide about-slide"
+                   data-title="3. Fake Review Detection"
+                   data-description="Advanced AI algorithms analyze linguistic patterns and user profiles to filter out suspicious and inauthentic reviews, ensuring you only see what's real."
+                   data-button-text="Learn More"
+                   data-button-link="#features">
+                <img src="images/fakereview.png" alt="AI detecting fake reviews">
+              </div>
+              <!-- Slide 4: Sentiment & Price Analysis -->
+              <div class="swiper-slide about-slide"
+                   data-title="4. Sentiment & Price Analysis"
+                   data-description="NLP models gauge the true sentiment behind genuine reviews, while our system compares prices across vendors to ensure fairness."
+                   data-button-text="Explore Analysis"
+                   data-button-link="#features">
+                <img src="images/sentiment.png" alt="Sentiment and price analysis charts">
+              </div>
+              <!-- Slide 5: Get Clear Insights -->
+              <div class="swiper-slide about-slide"
+                   data-title="5. Get Clear Insights"
+                   data-description="Receive a simple, actionable dashboard summarizing pros, cons, sentiment scores, and the best available deals for your product."
+                   data-button-text="Analyze a Product"
+                   data-button-link="#home">
+                <img src="images/summary.png" alt="Product insights dashboard">
+              </div>
+            </div>
+            <div class="about-pagination swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="partners" id="partners">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Trusted by the Best</h2>
+          <p>We're proud to collaborate with leading companies and startups from around the globe.</p>
+        </div>
+        <div class="logo-grid">
+          <img src="https://logo.clearbit.com/google.com" alt="Google">
+          <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft">
+          <img src="https://logo.clearbit.com/amazon.com" alt="Amazon">
+          <img src="https://logo.clearbit.com/spotify.com" alt="Spotify">
+          <img src="https://logo.clearbit.com/netflix.com" alt="Netflix">
+          <img src="https://logo.clearbit.com/airbnb.com" alt="Airbnb">
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-heading">
+          <h2>What Our Clients Say</h2>
+          <p>Real stories from real users who have transformed their shopping experience with WiseChoice.</p>
+        </div>
+        <div class="testimonial-swiper swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <p class="quote">"WiseChoice is a game-changer. I saved so much time and avoided a bad purchase thanks to their fake review detection. I can't imagine shopping online without it now."</p>
+                <div class="author">
+                  <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah L.">
+                  <div class="author-info">
+                    <h4>Sarah L.</h4>
+                    <span>E-commerce Enthusiast</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <p class="quote">"The price analysis feature alone is worth its weight in gold. I was about to overpay for a laptop, but WiseChoice found me a better deal on another site instantly."</p>
+                <div class="author">
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Mike R.">
+                  <div class="author-info">
+                    <h4>Mike R.</h4>
+                    <span>Tech Reviewer</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-pagination swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Choose Your Plan</h2>
+          <p>Start for free and scale up as you grow. No credit card required.</p>
+        </div>
+        <div class="pricing-grid">
+          <!-- Basic Plan -->
+          <div class="pricing-card">
+            <h3>Basic</h3>
+            <div class="price"><sup>$</sup>0<span>/month</span></div>
+            <p class="plan-description">For individuals and casual users getting started.</p>
+            <ul class="features-list">
+              <li><i class="fa-solid fa-check"></i> 5 Analyses per day</li>
+              <li><i class="fa-solid fa-check"></i> Fake Review Detection</li>
+              <li><i class="fa-solid fa-check"></i> Basic Sentiment Analysis</li>
+              <li class="disabled"><i class="fa-solid fa-times"></i> Price History Tracking</li>
+              <li class="disabled"><i class="fa-solid fa-times"></i> Community Support</li>
+            </ul>
+            <a href="#" class="btn-choose-plan">Choose Plan</a>
+          </div>
+          <!-- Pro Plan (Popular) -->
+          <div class="pricing-card popular">
+            <div class="popular-badge">Most Popular</div>
+            <h3>Pro</h3>
+            <div class="price"><sup>$</sup>19<span>/month</span></div>
+            <p class="plan-description">For power users and small businesses who need more.</p>
+            <ul class="features-list">
+              <li><i class="fa-solid fa-check"></i> 100 Analyses per day</li>
+              <li><i class="fa-solid fa-check"></i> Fake Review Detection</li>
+              <li><i class="fa-solid fa-check"></i> Advanced Sentiment Analysis</li>
+              <li><i class="fa-solid fa-check"></i> Price History Tracking</li>
+              <li><i class="fa-solid fa-check"></i> Priority Email Support</li>
+            </ul>
+            <a href="#" class="btn-choose-plan">Choose Plan</a>
+          </div>
+          <!-- Enterprise Plan -->
+          <div class="pricing-card">
+            <h3>Enterprise</h3>
+            <div class="price">Contact Us</div>
+            <p class="plan-description">For large teams and businesses with custom needs.</p>
+            <ul class="features-list">
+              <li><i class="fa-solid fa-check"></i> Unlimited Analyses</li>
+              <li><i class="fa-solid fa-check"></i> API Access</li>
+              <li><i class="fa-solid fa-check"></i> Dedicated Account Manager</li>
+              <li><i class="fa-solid fa-check"></i> Custom Integrations</li>
+              <li><i class="fa-solid fa-check"></i> 24/7 Phone Support</li>
+            </ul>
+            <a href="#" class="btn-choose-plan">Contact Sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© <span id="year"></span> WiseChoice AI. For demo purposes only.</p>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="back-to-top" title="Go to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
