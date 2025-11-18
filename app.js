@@ -90,10 +90,15 @@ function initSwipers() {
       loop: true,
       speed: 600,
       autoplay: { delay: 5000, disableOnInteraction: false },
-      slidesPerView: 1,
+      slidesPerView: 2,
       spaceBetween: 30,
       pagination: { el: '.testimonial-pagination', clickable: true },
+      navigation: { nextEl: '.testimonial-next', prevEl: '.testimonial-prev' },
       breakpoints: {
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 20
+        },
         768: {
           slidesPerView: 2,
           spaceBetween: 40
@@ -110,7 +115,12 @@ function setupBackToTop() {
 
   // Use window for scroll events for cross-browser compatibility
   window.addEventListener('scroll', () => {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    // Show button only when scrolled to the bottom (within 100px of the end)
+    if (scrollTop + windowHeight >= documentHeight - 100) {
       backToTopButton.classList.add('show');
     } else {
       backToTopButton.classList.remove('show');
@@ -170,4 +180,34 @@ function initAOS() {
   if (window.AOS) {
     AOS.init({ duration: 600, once: true, easing: 'ease-out-quart' });
   }
+}
+
+/* Contact Form Submission */
+function sendMessage() {
+  const name = $('#name').value.trim();
+  const email = $('#email').value.trim();
+  const subject = $('#subject').value.trim();
+  const message = $('#message').value.trim();
+
+  if (!name || !email || !subject || !message) {
+    alert('Please fill in all fields.');
+    return;
+  }
+
+  // Simple email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  // For demo purposes, just log the message and show a success alert
+  console.log('Contact Form Submission:', { name, email, subject, message });
+  alert('Thank you for your message! We will get back to you soon.');
+
+  // Clear the form
+  $('#name').value = '';
+  $('#email').value = '';
+  $('#subject').value = '';
+  $('#message').value = '';
 }
