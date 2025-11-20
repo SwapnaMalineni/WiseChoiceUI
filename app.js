@@ -14,15 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* Smooth scroll for anchor links */
 function setupSmoothScroll() {
-  [...$$('.nav-links a'), $('#get-started'), $('.cta-try')].filter(Boolean).forEach(a => {
+  const links = document.querySelectorAll('a[href^="#"]');
+  links.forEach(a => {
     a.addEventListener('click', (e) => {
       const href = a.getAttribute('href');
-      if (href?.startsWith('#')) {
-        e.preventDefault();
-        const target = $(href);
-        if (!target) return document.body.scrollTo({ top: 0, behavior: 'smooth' });
-        document.body.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
-      }
+      if (href === '#') return;
+      e.preventDefault();
+      const target = $(href);
+      if (!target) return window.scrollTo({ top: 0, behavior: 'smooth' });
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({ top: targetPosition - 70, behavior: 'smooth' });
     });
   });
 }
@@ -171,6 +172,20 @@ function runIntroAnimations() {
       },
       onUpdate: () => counter.textContent = Math.floor(counterObj.val).toLocaleString()
     });
+  });
+
+  // Animate Mission and Vision section with parallax fade
+  gsap.from('.mission-block, .vision-block', {
+    y: 100,
+    opacity: 0,
+    stagger: 0.2,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.mission-vision',
+      start: 'top 90%',
+      end: 'top 50%',
+      scrub: true,
+    }
   });
 
 

@@ -1,4 +1,4 @@
-stat:root {
+:root {
   --bg: #F9FAFB;
   --surface: #ffffff;
   --muted: #6b7280;
@@ -27,7 +27,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
-  background: radial-gradient(60% 80% at 70% 10%, rgba(79,70,229,0.06), transparent 60%) , radial-gradient(60% 80% at 10% 20%, rgba(16,185,129,0.06), transparent 65%) , var(--bg);
+  background: radial-gradient(60% 80% at 70% 10%, rgba(79,70,229,0.1), transparent 50%) , radial-gradient(60% 80% at 10% 20%, rgba(16,185,129,0.1), transparent 50%) , radial-gradient(60% 80% at 50% 50%, rgba(251,191,36,0.05), transparent 70%) , var(--bg);
   color: var(--text);
   line-height: 1.5;
 }
@@ -35,6 +35,11 @@ body {
 .container {
   width: min(1200px, 92%);
   margin: 0 auto;
+}
+@media (max-width: 640px) {
+  .container {
+    width: 95%;
+  }
 }
 
 .visually-hidden {
@@ -50,7 +55,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.95);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
@@ -159,9 +164,9 @@ body {
   min-width: 100%;
   background: linear-gradient(
     135deg,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.2) 50%,
-    rgba(0, 0, 0, 0.4) 100%
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.6) 100%
   );
   pointer-events: none;
   z-index: 1;
@@ -278,9 +283,10 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .btn-secondary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
   background: rgba(255, 255, 255, 1);
+  border-color: var(--brand);
 }
 .hero-pagination {
   position: absolute;
@@ -314,8 +320,21 @@ body {
 
 /* Features */
 .features {
-  padding: 10px 0;
-  background: var(--bg);
+  padding: 60px 0;
+  font-weight: 800;
+  color: var(--text);
+  position: relative;
+}
+.features::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(79,70,229,0.1), transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(16,185,129,0.1), transparent 50%);
+  pointer-events: none;
 }
 .features h2 {
   text-align: center;
@@ -425,6 +444,49 @@ body {
   font-weight: 500;
 }
 
+/* Mission and Vision Section */
+.mission-vision {
+  margin-top: 60px;
+}
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.mission-block,
+.vision-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.mission-block:hover,
+.vision-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(79,70,229,0.2);
+}
+.mission-block i,
+.vision-block i {
+  font-size: 3rem;
+  color: var(--brand);
+  margin-bottom: 20px;
+}
+.mission-block h3,
+.vision-block h3 {
+  font-size: 1.5rem;
+  color: var(--text);
+  margin-bottom: 15px;
+}
+.mission-block p,
+.vision-block p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 /* About Us Section */
 .about {
   padding: 10px 0;
@@ -488,7 +550,7 @@ body {
   overflow: hidden;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding-bottom: 40px; /* Add space for pagination */
+  padding-bottom: 80px; /* Increased space for pagination to avoid conflict with images */
 }
 .about-swiper {
   width: 100%;
@@ -544,7 +606,19 @@ body {
 /* Partners Section */
 .partners {
   padding: 10px 0;
-  background: var(--bg);
+  background: linear-gradient(135deg, rgba(251,191,36,0.05), rgba(79,70,229,0.05));
+  position: relative;
+}
+.partners::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 40% 60%, rgba(251,191,36,0.1), transparent 50%),
+              radial-gradient(circle at 60% 40%, rgba(79,70,229,0.1), transparent 50%);
+  pointer-events: none;
 }
 .logo-grid {
   display: flex;
@@ -556,9 +630,11 @@ body {
   will-change: transform;
 }
 .logo-grid img {
-  max-width: 110px;
+  width: 110px;
+  height: 110px;
   flex-shrink: 0;
   transition: all 0.3s ease;
+  object-fit: contain;
 }
 .logo-grid img:hover {
   transform: scale(1.05);
@@ -901,10 +977,10 @@ body {
 
 /* Footer */
 .footer {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
+  background: linear-gradient(135deg, #1f2937, #374151);
+  border-top: 1px solid #4b5563;
   padding: 60px 0 20px;
-  color: var(--muted);
+  color: #f9fafb;
 }
 .footer-content {
   display: grid;
@@ -916,7 +992,7 @@ body {
   text-align: left;
 }
 .footer-section h4 {
-  color: var(--text);
+  color: #ffffff;
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 20px;
@@ -930,7 +1006,7 @@ body {
   margin-bottom: 10px;
 }
 .footer-section ul li a {
-  color: var(--muted);
+  color: #d1d5db;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -950,7 +1026,7 @@ body {
 .footer-brand span {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--text);
+  color: blue;
 }
 .footer-section p {
   line-height: 1.6;
