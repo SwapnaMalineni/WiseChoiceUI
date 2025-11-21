@@ -121,7 +121,7 @@ function setupBackToTop() {
     const documentHeight = document.documentElement.scrollHeight;
 
     // Show button only when scrolled to the bottom (within 100px of the end)
-    if (scrollTop + windowHeight >= documentHeight - 100) {
+    if (scrollTop + windowHeight >= documentHeight - 200) {
       backToTopButton.classList.add('show');
     } else {
       backToTopButton.classList.remove('show');
